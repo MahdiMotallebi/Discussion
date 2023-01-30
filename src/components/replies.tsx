@@ -1,6 +1,9 @@
 import React from 'react';
 import { useGlobalContext } from '../context';
 
+//icons
+import { BsHandThumbsUpFill } from 'react-icons/bs';
+
 //helper
 import { SplitName, timeSince } from '../helper';
 
@@ -55,7 +58,11 @@ const Replies: React.FC<Props> = ({ reply }) => {
             onClick={handleLike}
             className={`like ${iLikedIt && 'iLikedIt'}`}
           >
-            <span>👍</span>
+            <BsHandThumbsUpFill
+              color="#aaa"
+              className={`${iLikedIt && 'thumb_like'}`}
+            />
+
             {likes}
           </button>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useGlobalContext } from '../context';
 
 //icons
-import HiHandThumbUp from 'react-icons/ai';
+import { BsHandThumbsUpFill } from 'react-icons/bs';
 import { SplitName, timeSince } from '../helper';
 
 //types
@@ -17,7 +17,6 @@ interface Props {
 }
 
 const ParentComment: React.FC<Props> = ({ comment }) => {
-  const [showReply, setShowReply] = React.useState<boolean>(false);
   const { id, date, user, text, likes, iLikedIt, replies } = comment;
   const { state, setState } = useGlobalContext();
 
@@ -43,8 +42,7 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
   };
 
   const handleReply = () => {
-    setShowReply(!showReply);
-    setState({ ...state, replyId: id });
+    setState({ ...state, replyId: id, showReply: !state.showReply });
   };
   return (
     <div className="wrapper">
@@ -65,7 +63,11 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
               onClick={handleLike}
               className={`like ${iLikedIt && 'iLikedIt'}`}
             >
-              <span>👍</span>
+              <BsHandThumbsUpFill
+                color="#aaa"
+                className={`${iLikedIt && 'thumb_like'}`}
+              />
+
               {likes}
             </button>
             <button onClick={handleReply} className="btn reply">
@@ -77,7 +79,7 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
       {replies.map((reply) => {
         return <Replies reply={reply} />;
       })}
-      {showReply && (
+      {state.showReply && (
         <div className="reply_form_wrapper">
           <ReplyDiscussion />
         </div>

@@ -26,7 +26,7 @@ const FormDiscussion = () => {
     };
 
     let newArray = [newComment, ...state.comments];
-    setState({ ...state, comments: newArray });
+    setState({ ...state, showReply: false, comments: newArray });
     setValueInput('');
   };
   return (

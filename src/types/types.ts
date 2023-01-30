@@ -20,4 +20,5 @@ export interface IProps {
 export interface InitialState {
   comments: IDiscussion[];
   replyId: number;
+  showReply: boolean;
 }

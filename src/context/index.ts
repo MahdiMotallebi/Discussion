@@ -10,7 +10,8 @@ interface Types {
 export const globalContext = createContext<Types>({
   state: {
     comments: discussions,
-    replyId: 1
+    replyId: 1,
+    showReply: false
   },
   setState: () => {}
 });

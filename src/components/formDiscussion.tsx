@@ -13,19 +13,20 @@ const FormDiscussion = () => {
 
     const newComment: IDiscussion = {
       id: Math.random(),
-      date: 1600336812200,
+      date: new Date().getTime(),
       user: {
         name: 'nahdi babashli',
         avatar:
           'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
       },
       text: valueInput,
-      likes: 12,
+      likes: 321,
       iLikedIt: false,
       replies: []
     };
 
     let newArray = [newComment, ...state.comments];
+    console.log(newArray);
     setState({ ...state, showReply: false, comments: newArray });
     setValueInput('');
   };

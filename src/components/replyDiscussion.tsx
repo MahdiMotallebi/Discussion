@@ -12,9 +12,9 @@ const ReplyDiscussion = () => {
     e.preventDefault();
     const newComment: IComment = {
       id: Math.random(),
-      date: 1600336812200,
+      date: new Date().getTime(),
       user: {
-        name: 'nahdi babashli',
+        name: 'ayten rasoul',
         avatar:
           'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
       },

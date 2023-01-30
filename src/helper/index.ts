@@ -21,4 +21,6 @@ export const timeSince = (date: number) => {
 
   i = timeDistance / 60; // 1 minute is 60 second
   if (i >= 1) return `${Math.floor(i)} minute ago`;
+
+  return 'a second ago';
 };

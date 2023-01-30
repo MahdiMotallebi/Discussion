@@ -41,8 +41,12 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
     setState({ ...state, comments: newComments });
   };
 
-  const handleReply = () => {
-    setState({ ...state, replyId: id, showReply: !state.showReply });
+  const handleReply = (e: React.MouseEvent) => {
+    setState({
+      ...state,
+      replyId: Number(e.currentTarget.id),
+      showReply: !state.showReply
+    });
   };
   return (
     <div className="wrapper">
@@ -70,7 +74,11 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
 
               {likes}
             </button>
-            <button onClick={handleReply} className="btn reply">
+            <button
+              id={String(id)}
+              onClick={(e) => handleReply(e)}
+              className="btn reply"
+            >
               reply
             </button>
           </div>
@@ -79,7 +87,7 @@ const ParentComment: React.FC<Props> = ({ comment }) => {
       {replies.map((reply) => {
         return <Replies reply={reply} />;
       })}
-      {state.showReply && (
+      {state.replyId === id && (
         <div className="reply_form_wrapper">
           <ReplyDiscussion />
         </div>

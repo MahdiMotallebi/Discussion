@@ -16,7 +16,7 @@ import { InitialState } from './types/types';
 const App = () => {
   const [state, setState] = React.useState<InitialState>({
     comments: discussions,
-    replyId: 1,
+    replyId: -1,
     showReply: false
   });
 

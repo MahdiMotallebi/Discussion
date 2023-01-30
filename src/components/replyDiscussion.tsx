@@ -10,28 +10,31 @@ const ReplyDiscussion = () => {
   const [valueInput, setValueInput] = React.useState<string>('');
   const replyComment = (e: React.FormEvent) => {
     e.preventDefault();
-    const newComment: IComment = {
-      id: Math.random(),
-      date: new Date().getTime(),
-      user: {
-        name: 'ayten rasoul',
-        avatar:
-          'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
-      },
-      text: valueInput,
-      likes: 0,
-      iLikedIt: false
-    };
 
-    const newComments: IDiscussion[] = state.comments.map((comment) => {
-      if (comment.id === state.replyId) {
-        comment.replies.unshift(newComment);
-      }
-      return comment;
-    });
-    console.log(newComments);
-    setState({ ...state, comments: newComments });
-    setValueInput('');
+    if (valueInput.length > 0) {
+      const newComment: IComment = {
+        id: Math.random(),
+        date: new Date().getTime(),
+        user: {
+          name: 'ayten rasoul',
+          avatar:
+            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
+        },
+        text: valueInput,
+        likes: 0,
+        iLikedIt: false
+      };
+
+      const newComments: IDiscussion[] = state.comments.map((comment) => {
+        if (comment.id === state.replyId) {
+          comment.replies.unshift(newComment);
+        }
+        return comment;
+      });
+      console.log(newComments);
+      setState({ ...state, comments: newComments });
+      setValueInput('');
+    }
   };
   return (
     <>

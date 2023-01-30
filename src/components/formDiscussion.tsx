@@ -11,24 +11,26 @@ const FormDiscussion = () => {
   const addComment = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newComment: IDiscussion = {
-      id: Math.random(),
-      date: new Date().getTime(),
-      user: {
-        name: 'nahdi babashli',
-        avatar:
-          'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
-      },
-      text: valueInput,
-      likes: 321,
-      iLikedIt: false,
-      replies: []
-    };
+    if (valueInput.length > 0) {
+      const newComment: IDiscussion = {
+        id: Math.random(),
+        date: new Date().getTime(),
+        user: {
+          name: 'nahdi babashli',
+          avatar:
+            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50'
+        },
+        text: valueInput,
+        likes: 321,
+        iLikedIt: false,
+        replies: []
+      };
 
-    let newArray = [newComment, ...state.comments];
-    console.log(newArray);
-    setState({ ...state, showReply: false, comments: newArray });
-    setValueInput('');
+      let newArray = [newComment, ...state.comments];
+      console.log(newArray);
+      setState({ ...state, showReply: false, comments: newArray });
+      setValueInput('');
+    }
   };
   return (
     <>

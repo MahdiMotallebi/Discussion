@@ -9,6 +9,8 @@ import Comments from './components/comments';
 
 //styles
 import './style/main.scss';
+
+//types
 import { InitialState } from './types/types';
 
 const App = () => {

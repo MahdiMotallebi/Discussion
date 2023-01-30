@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { discussions } from '../db/discussions';
-import { IDiscussion, InitialState } from '../types/types';
+import { InitialState } from '../types/types';
 
 interface Types {
   state: InitialState;

@@ -1,5 +1,3 @@
-import { IComment } from '../types/types';
-
 export const SplitName = (name: string) => {
   const sName = name.split(' ');
   return `${sName[0][0]}${sName[1][0]}`;

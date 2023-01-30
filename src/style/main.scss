@@ -22,7 +22,10 @@ body {
   height: 100%;
 }
 
-/* Comment */
+/*=============================================
+                   Comment            
+=============================================*/
+
 .wrapper {
   $padding: 2rem;
   border-bottom: 2px solid #eee;
@@ -130,7 +133,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Reply */
 .wrapper-reply {
   display: flex;
   justify-content: start;
@@ -141,7 +143,10 @@ body {
   margin-left: calc(#{$size_avatar});
 }
 
-/* FormDiscussion */
+/*=============================================
+              Form Discussion                
+=============================================*/
+
 .form_wrapper {
   width: 100%;
   background-color: #f1f9fc;
@@ -180,6 +185,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
   margin-left: calc(#{$size_avatar} + 1rem);
 }
